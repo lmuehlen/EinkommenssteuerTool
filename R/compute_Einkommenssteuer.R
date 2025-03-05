@@ -1,6 +1,19 @@
 
 #' Einkommenssteuer berechnen
 #'
+#'
+#' \deqn{
+#' Einkommensteuer(zve)=
+#'\begin{cases}
+#'0 & zve\leq gfb\\
+#'pg1s(zve-gfb)+\frac{pg2s-pg1s}{2(pg1e-gfb)}(zve-gfb)^2 & gfb<zve\leq pg1e\\
+#'pg2s(zve-pg1e)+\frac{pp1s-pg2s}{2(pg2e-pg1e)}(zve-pg1e)^2 +
+#'  pg1s(pg1e-gfb)+\frac{pg2s-pg1s}{2(pg1e-gfb)}(pg1e-gfb)^2 & pg1e<zve\leq pg2e\\
+#'pp1s(zve-pg2e)+pg2s(zve-pg1e)+\frac{pp1s-pg2s}{2(pg2e-pg1e)}(zve-pg1e)^2 + pg1s(pg1e-gfb)+\frac{pg2s-pg1s}{2(pg1e-gfb)}(pg1e-gfb)^2 & pg1e<zve\leq pg2e\\
+#'pp2s(zve-pp1e)+pp1s(pp1e-pg2e)+pg2s(zve-pg1e)+\frac{pp1s-pg2s}{2(pg2e-pg1e)}(zve-pg1e)^2 + pg1s(pg1e-gfb)+\frac{pg2s-pg1s}{2(pg1e-gfb)}(pg1e-gfb)^2 & pg1e<zve\leq pg2e\\
+#'\end{cases}}
+#'
+#'
 #' @param zve Zu versteuerndes Einkommen
 #' @param gfb Grundfreibetrags
 #' @param pg1s Startsatz erste Progressionszone
