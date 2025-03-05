@@ -1,5 +1,5 @@
 
-#'
+#' Grenzsteuersatz berechnen
 #'
 #' *compute_Grenzsteuersatz* berechnet den Grenzsteuersatz bei einem zu versteuernden Einkommen von *zve* basierend auf den gegebenen Eckwerten der Grenzsteuer.
 #'

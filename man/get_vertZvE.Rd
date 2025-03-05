@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_vertZvE.R
 \name{get_vertZvE}
 \alias{get_vertZvE}
-\title{get_vertZvE}
+\title{Verteilung zu versteuerndes Einkommen approximieren}
 \usage{
 get_vertZvE(data_eink, nominallohn_fkt = 1)
 }
@@ -15,7 +15,7 @@ get_vertZvE(data_eink, nominallohn_fkt = 1)
 dataframe inkl ZvE und Steuerpflichtige_norm_smooth
 }
 \description{
-get_vertZvE
+Verteilung zu versteuerndes Einkommen approximieren
 }
 \examples{
 \dontrun{
