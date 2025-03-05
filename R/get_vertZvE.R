@@ -3,14 +3,12 @@
 #' @param data_eink Tabelle 73111-02 aus Lohn- und Einkommenssteuerbericht hat Variablen "Zu_versteuerndes_Einkommen", "Grund-Splittingtabelle", "Steuerpflichtige_Anzahl", "Betrag_EUR". Kann weitere haben
 #' @param nominallohn_fkt Faktor für Verschiebung der Nominallöhne e.g. Nominallohn_fkt=(1+"Annahme Lohnwachstum 2025")\*"Nominallohnindex Mai 2024"/"Nominallohnindex 2019"
 #'
-#' @importFrom dplyr filter
-#' @importFrom dplyr select
-#' @importFrom dplyr mutate
-#' @importFrom dplyr case_when
+#' @import dplyr
 #' @importFrom tidyr pivot_wider
+#' @import magrittr
 #' @importFrom stats spline
 #' @importFrom fuzzyjoin fuzzy_left_join
-#' @importFrom magrittr "%>%"
+#'
 #'
 #'
 #'
