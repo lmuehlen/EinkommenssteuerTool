@@ -2,7 +2,7 @@
 #' Compute Grenzsteuersatz
 #'
 #' *compute_Grenzsteuersatz* berechnet den Grenzsteuersatz bei einem zu versteuernden Einkommen von *zve* basierend auf den gegebenen Eckwerten der Grenzsteuer.
-#' \deqn {
+#' $$
 #' Grenzsteuersatz(zve)=\begin{cases}
 #' 0 &x\leq zve\\
 #' pg1s+\frac{pg2s-pg1s}{pg1e-gfb}*zve & gfb<zve\leq pg1e\\
@@ -10,7 +10,7 @@
 #' pp1s & pg1e<zve\leq pp1e\\
 #' pp2s & pp1e<zve
 #' \end{cases}
-#' }
+#' $$
 #'
 #' @param zve Zu versteuerndes Einkommen
 #' @param gfb Grundfreibetrags
