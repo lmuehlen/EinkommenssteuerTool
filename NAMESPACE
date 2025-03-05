@@ -2,11 +2,8 @@
 
 export(compute_Grenzsteuersatz)
 export(get_vertZvE)
-importFrom(dplyr,case_when)
-importFrom(dplyr,filter)
-importFrom(dplyr,mutate)
-importFrom(dplyr,select)
+import(dplyr)
+import(magrittr)
 importFrom(fuzzyjoin,fuzzy_left_join)
-importFrom(magrittr,"%>%")
 importFrom(stats,spline)
 importFrom(tidyr,pivot_wider)
