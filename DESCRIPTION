@@ -17,4 +17,3 @@ LazyData: true
 URL: https://github.com/lmuehlen/EinkommenssteuerTool
 BugReports: https://github.com/lmuehlen/EinkommenssteuerTool/issues
 RoxygenNote: 7.3.2
-
