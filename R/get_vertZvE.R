@@ -9,6 +9,7 @@
 #' @importFrom stats spline
 #' @importFrom fuzzyjoin fuzzy_left_join
 #' @importFrom stringr str_remove_all
+#' @importFrom stringr str_extract
 #'
 #'
 #'
