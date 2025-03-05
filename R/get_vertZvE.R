@@ -1,4 +1,3 @@
-
 #' get_vertZvE
 #'
 #' @param data_eink Tabelle 73111-02 aus Lohn- und Einkommenssteuerbericht hat Variablen "Zu_versteuerndes_Einkommen", "Grund-Splittingtabelle", "Steuerpflichtige_Anzahl", "Betrag_EUR". Kann weitere haben
@@ -11,7 +10,7 @@
 #' @importFrom tidyr pivot_wider
 #' @importFrom stats spline
 #' @importFrom fuzzyjoin fuzzy_left_join
-#' @importFrom magrittr "%>%"
+#' @import magrittr
 #'
 #'
 #'
