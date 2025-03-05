@@ -41,17 +41,6 @@ number
 \description{
 *compute_Grenzsteuersatz* berechnet den Grenzsteuersatz bei einem zu versteuernden Einkommen von *zve* basierend auf den gegebenen Eckwerten der Grenzsteuer.
 }
-\details{
-\deqn{
-Grenzsteuersatz(zve)=\begin{cases}
-0 &x\leq zve\\
-pg1s+\frac{pg2s-pg1s}{pg1e-gfb}*zve & gfb<zve\leq pg1e\\
-pg2s+\frac{pp1s-pg2s}{pg2e-pg1e}*zve & pg1e<zve\leq pg2e\\
-pp1s & pg1e<zve\leq pp1e\\
-pp2s & pp1e<zve
-\end{cases}
-}
-}
 \examples{
 compute_Grenzsteuersatz(30000)
 }

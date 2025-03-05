@@ -2,6 +2,7 @@
 
 export(compute_Grenzsteuersatz)
 export(get_vertZvE)
+import(magrittr)
 importFrom(dplyr,case_when)
 importFrom(dplyr,filter)
 importFrom(dplyr,mutate)

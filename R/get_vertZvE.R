@@ -10,7 +10,7 @@
 #' @importFrom tidyr pivot_wider
 #' @importFrom stats spline
 #' @importFrom fuzzyjoin fuzzy_left_join
-#' @import magrittr
+#' @importFrom magrittr "%>%"
 #'
 #'
 #'
