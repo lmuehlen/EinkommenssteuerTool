@@ -4,7 +4,6 @@
 #' *compute_Grenzsteuersatz* berechnet den Grenzsteuersatz bei einem zu versteuernden Einkommen von *zve* basierend auf den gegebenen Eckwerten der Grenzsteuer.
 #'
 #'
-#'
 #' @param zve Zu versteuerndes Einkommen
 #' @param gfb Grundfreibetrags
 #' @param pg1s Startsatz erste Progressionszone

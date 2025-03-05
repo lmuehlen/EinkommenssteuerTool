@@ -1,17 +1,16 @@
 Package: EinkommenssteuerTool
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Einkommenssteuerreform
 Version: 0.1.0
 Authors@R: c(
     person(
       "Jane", "Doe",
-      email = "jane@example.com",
+      email = "leonard.muehlenweg@dezernatzukunft.org",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Berechnung von Verteilungseffekten, Kosten und Wachstumseffekten von Einkommensteuerreformen
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/lmuehlen/EinkommenssteuerTool

@@ -11,9 +11,7 @@
 #' @importFrom stringr str_remove_all
 #' @importFrom stringr str_extract
 #'
-#'
-#'
-#'
+#
 #'
 #' @returns dataframe inkl ZvE und Steuerpflichtige_norm_smooth
 #' @export
