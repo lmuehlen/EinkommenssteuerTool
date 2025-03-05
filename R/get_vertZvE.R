@@ -8,6 +8,7 @@
 #' @import magrittr
 #' @importFrom stats spline
 #' @importFrom fuzzyjoin fuzzy_left_join
+#' @importFrom stringr str_remove_all
 #'
 #'
 #'
@@ -30,7 +31,7 @@ get_vertZvE<-function(data_eink,nominallohn_fkt=1){
     mutate(
       Einzel_Split=case_when(grepl("Grundtabelle",Einzel_Split)~"Einzel",
                              grepl("Splittingtabelle",Einzel_Split)~"Splitting"),
-      ZvE_lb = as.numeric(str_remove_all(str_extract(ZvE, "(?<=von )\\d+(?: \\d+)*"), " ")),
+      ZvE_lb = as.numeric(stringr::str_remove_all(str_extract(ZvE, "(?<=von )\\d+(?: \\d+)*"), " ")),
       ZvE_lb = dplyr::case_when(Einzel_Split=="Splitting"~ZvE_lb/2,
                          TRUE~ZvE_lb),
       ZvE_lb = dplyr::case_when(grepl("unter 0",ZvE)~0,
