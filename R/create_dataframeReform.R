@@ -41,7 +41,7 @@ create_dataframeReform<-function(
 
 
   data_ZvE<-clean_dataZvE(data_eink)
-  data_vertZvE<-get_vertZvE(dataZvE)
+  data_vertZvE<-get_vertZvE(data_ZvE)
   # Berechnungen für Personen mit zu versteuernden Einkommen über 1 Mio####
   #Anzahl und durchschnittliche zu versteuerndes Einkommen Steuerpflichtige mit zu versteuernden Einkommen über 1 Mio
   AnzahlSteuerpflichte_over1mio<-data_ZvE%>%filter(ZvE_lb==1000000)%>%pull(Steuerpflichtige_Gesamt)
