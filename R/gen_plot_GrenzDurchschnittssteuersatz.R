@@ -25,8 +25,8 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,
   #Grenzen Plots
 
   if(is.null(max_y)){
-    max_y<-df%>%pull(Grenzsteuersatz_inkl_Soli_vgl)%>%max(na.rm = T)/10%>%ceiling()*10
-    #gstdst_ub<-10*ceiling(max(df$Grenzsteuersatz_inklSoli_vgl,na.rm=T)/10)
+    max_y<-df%>%pull(Grenzsteuersatz_inkl_Soli_reform)%>%max(na.rm = T)/10%>%ceiling()*10
+    #gstdst_ub<-10*ceiling(max(df$Grenzsteuersatz_inklSoli_reform,na.rm=T)/10)
   }
 
   vis_gst_dst<-df%>%
@@ -34,10 +34,10 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,
     geom_hline(yintercept = 0)+
     #Grenzsteuersatz
     geom_line(aes(y=Grenzsteuersatz_inklSoli_base,color="Status quo"))+
-    geom_line(aes(y=Grenzsteuersatz_inklSoli_vgl,color="Reform"))+
+    geom_line(aes(y=Grenzsteuersatz_inklSoli_reform,color="Reform"))+
     #Durchschnittssteuersatz
     geom_line(aes(y=Durchschnittssteuersatz_inklSoli_base,color="Status quo"),linetype="dashed")+
-    geom_line(aes(y=Durchschnittssteuersatz_inklSoli_vgl,color="Reform"),linetype="dashed")+
+    geom_line(aes(y=Durchschnittssteuersatz_inklSoli_reform,color="Reform"),linetype="dashed")+
     #Design
     scale_x_continuous(limits = c(0,max_y),expand = c(0.01,0.01),breaks=breaks,labels = labels)+
     scale_y_continuous(limits = c(0,max_y))+
