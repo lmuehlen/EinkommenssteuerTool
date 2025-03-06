@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' get_vertZvE(data_eink,1)}
+#' get_vertZvE(data_eink_clean)}
 get_vertZvE<-function(data_eink_clean){
 
 data<-data_eink_clean

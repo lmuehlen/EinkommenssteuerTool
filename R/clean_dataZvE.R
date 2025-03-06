@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' get_vertZvE(data_eink,1)}
+#' clean_dataZvE(data_eink,1)}
 clean_dataZvE<-function(data_eink,nominallohn_fkt=1){
 
   data_eink_clean<-data_eink%>%
