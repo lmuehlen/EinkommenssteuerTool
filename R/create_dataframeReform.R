@@ -33,15 +33,15 @@
 #' \dontrun{
 #' get_dataframeReform(data_eink)}
 create_dataframeReform<-function(
-    data_eink,
+    data_ZvE,data_vertZvE,
     gfb_reform=11604, pg1s_reform=14, pg1e_reform=17005, pg2s_reform=23.97, pg2e_reform=66760, pp1s_reform=42, pp1e_reform=277826, pp2s_reform=45,
     solib_base=18130, solis_base=5.5,solig_base=11.9,
     gfb_base=11604, pg1s_base=14, pg1e_base=17005, pg2s_base=23.97, pg2e_base=66760, pp1s_base=42, pp1e_base=277826, pp2s_base=45,
     solib_reform=18130, solis_reform=5.5,solig_reform=11.9){
 
 
-  data_ZvE<-clean_dataZvE(data_eink)
-  data_vertZvE<-get_vertZvE(data_ZvE)
+  #data_ZvE<-clean_dataZvE(data_eink)
+  #data_vertZvE<-get_vertZvE(data_ZvE)
   # Berechnungen für Personen mit zu versteuernden Einkommen über 1 Mio####
   #Anzahl und durchschnittliche zu versteuerndes Einkommen Steuerpflichtige mit zu versteuernden Einkommen über 1 Mio
   AnzahlSteuerpflichte_over1mio<-data_ZvE%>%filter(ZvE_lb==1000000)%>%pull(Steuerpflichtige_Gesamt)
