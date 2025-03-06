@@ -16,6 +16,6 @@ theme
 Ggplot theme Dezernat Zukunft
 }
 \examples{
-\notrun{
+\dontrun{
 theme_dz()}
 }
