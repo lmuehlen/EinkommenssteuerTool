@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{
 #' get_vertZvE(data_eink,1)}
-get_vertZvE<-function(data_eink,nominallohn_fkt=1){
+clean_dataZvE<-function(data_eink,nominallohn_fkt=1){
 
   data_eink_clean<-data_eink%>%
     dplyr::filter(Merkmal_1=="Zu versteuerndes Einkommen",Zu_versteuerndes_Einkommen!="Insgesamt")%>%
