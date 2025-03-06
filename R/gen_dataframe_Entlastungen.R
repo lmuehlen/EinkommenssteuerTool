@@ -15,11 +15,11 @@
 gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
 
   # Entlastung insgesamt (Gesamtkosten)
-  Entlastung_gesamt <- data$Mindereinnahmen_inklSoli %>%
-    sum(na.rm = TRUE) / 1e9
+#  Entlastung_gesamt <- data$Mindereinnahmen_inklSoli %>%
+ #   sum(na.rm = TRUE) / 1e9
 
   # Entlastung aufgeteilt nach n-til der im Status Quo Steuerpflichtigen
-  Entlastung_Uebersicht <- data %>%
+  Entlastung_dataframe <- data %>%
     filter(ZvE > 12096) %>%
     arrange(ZvE) %>%
     mutate(
@@ -58,12 +58,13 @@ gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
         na.rm = TRUE
       ),
       .groups = "drop"
-    )
+    )%>%
+    add_row(group="Insgesamt",Entlastung_group=sum(Entlastung_group),Entlastung_group_pc=sum(Entlastung_group_pc),Entlastung_ind=mean(Entlastung_ind),Entlastung_ind_pcZvE=mean(Entlastung_ind_pcZvE))
 
-  list_entlastung<-list(
-    Entlastung_gesamt = Entlastung_gesamt,
-    Entlastung_Übersicht = Entlastung_Uebersicht
-  )
+  #list_entlastung<-list(
+  #  Entlastung_gesamt = Entlastung_gesamt,
+  #  Entlastung_Übersicht = Entlastung_Uebersicht
+  #)
 
   return(list_entlastung)
 }
