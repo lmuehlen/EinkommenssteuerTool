@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' \notrun{
+#' \dontrun{
 #' theme_dz()}
 theme_dz<-function(base_size=base_size){
   theme_tufte(base_family = "Open Sans",base_size = base_size)+

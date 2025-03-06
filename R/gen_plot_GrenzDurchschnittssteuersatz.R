@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{gen_plot_GrenzDurchschnittssteuersatz(SPD2025_df)}
-gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,fast,breaks=c(0,30000,60000,90000,120000)){
+gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,fast=FALSE,breaks=c(0,30000,60000,90000,120000)){
 
   df<-df%>%filter(ZvE<=max_x)
 
@@ -24,7 +24,7 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,
   labels=formatC(breaks,big.mark = ".",decimal.mark = ",", format = "f", digits = 0)
   #Grenzen Plots
 
-  if(is.null(gstdst_ub)){
+  if(is.null(max_y)){
     max_y<-df%>%pull(Grenzsteuersatz_inkl_Soli_vgl)%>%max(na.rm = T)/10%>%ceiling()*10
     #gstdst_ub<-10*ceiling(max(df$Grenzsteuersatz_inklSoli_vgl,na.rm=T)/10)
   }
