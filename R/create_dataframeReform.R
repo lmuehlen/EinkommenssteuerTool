@@ -40,19 +40,10 @@ create_dataframeReform<-function(
     solib_reform=18130, solis_reform=5.5,solig_reform=11.9){
 
 
-  #data_ZvE<-clean_dataZvE(data_eink)
-  #data_vertZvE<-get_vertZvE(data_ZvE)
-  # Berechnungen für Personen mit zu versteuernden Einkommen über 1 Mio####
-  #Anzahl und durchschnittliche zu versteuerndes Einkommen Steuerpflichtige mit zu versteuernden Einkommen über 1 Mio
+# Daten für über Personen mit zu versteuernden Einkommen von über 1 Mio
   AnzahlSteuerpflichte_over1mio<-data_ZvE%>%filter(ZvE_lb==1000000)%>%pull(Steuerpflichtige_Gesamt)
   ZvEDurchschnitt_over1mio<-data_ZvE%>%filter(ZvE_lb==1000000)%>%pull(ZvE_Durchschnitt)
-  #Durschnittliche zu zahlende Einkommensteuer für Steuerpflichtige mit zu versteuernden Einkommen über 1 Mio (Status quo und Reform)
- # Einkommensteuer_over1mio_base<-compute_Einkommensteuer(ZvEDurchschnitt_over1mio,gfb_base, pg1s_base, pg1e_base, pg2s_base, pg2e_base, pp1s_base, pp1e_base, pp2s_base)
-  #Einkommensteuer_over1mio_reform<-compute_Einkommensteuer(ZvEDurchschnitt_over1mio,gfb_reform, pg1s_reform, pg1e_reform, pg2s_reform, pg2e_reform, pp1s_reform, pp1e_reform, pp2s_reform)
-  #Steuereinnahmen durch Steuerpflichtige mit zu versteuernden Einkommen über 1 Mio
-  #Einnahmen_over1mio_base<-AnzahlSteuerpflichte_over1mio*Einkommensteuer_over1mio_base
-  #Einnahmen_over1mio_reform<-AnzahlSteuerpflichte_over1mio*Einkommensteuer_over1mio_reform
-  #Mindereinnahmen_over1mio<-Einnahmen_over1mio_base-Einnahmen_over1mio_reform
+
 
   #Creating dataset####
 
