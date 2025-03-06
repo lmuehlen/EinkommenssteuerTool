@@ -67,5 +67,5 @@ gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
   #  Entlastung_Übersicht = Entlastung_Uebersicht
   #)
 
-  return(list_entlastung)
+  return(Entlastung_dataframe)
 }
