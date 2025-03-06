@@ -12,6 +12,8 @@
 #' @examples
 #' \dontrun{
 #' gen_plot(relativeEntlastung(SPD2025_df))}
+#'
+
 gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000),limit=500000,limitneg_y=NULL,limitpos_y=NULL){
 
   vgl_df<-df%>%filter(ZvE<=limit)
@@ -62,7 +64,7 @@ gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000
     ) +
     coord_cartesian(clip = "off")+
     #Line plot
-     geom_line(aes(y=Entlastung_inklSoli_pcZvE),color="#181c44")}+
+     geom_line(aes(y=Entlastung_inklSoli_pcZvE),color="#181c44")+
 
     #Design
     scale_x_continuous(limits = c(log(10000),log(limit)),expand=c(0.014,0.014),breaks = log(breaks),labels = labels)+
