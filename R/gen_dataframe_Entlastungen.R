@@ -59,6 +59,7 @@ gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
       ),
       .groups = "drop"
     )%>%
+    ungroup()%>%
     add_row(group="Insgesamt",Entlastung_group=sum(Entlastung_group),Entlastung_group_pc=sum(Entlastung_group_pc),Entlastung_ind=mean(Entlastung_ind),Entlastung_ind_pcZvE=mean(Entlastung_ind_pcZvE))
 
   #list_entlastung<-list(
