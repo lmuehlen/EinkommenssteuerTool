@@ -8,17 +8,17 @@
 #' @importFrom dplyr pull
 #' @import ggplot2
 #'
-#' @returns plot
+#' @returns plotgen
 #' @export
 #'
 #' @examples
 #' \dontrun{gen_plot_GrenzDurchschnittssteuersatz(SPD2025_df)}
-gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,breaks=c(0,30000,60000,90000,120000)){
+gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,fast,breaks=c(0,30000,60000,90000,120000)){
 
   df<-df%>%filter(ZvE<=max_x)
 
   if(fast){
-    df%>%filter()
+  df<-df%>%filter(ZvE%%200==0)
   }
 
   labels=formatC(breaks,big.mark = ".",decimal.mark = ",", format = "f", digits = 0)
