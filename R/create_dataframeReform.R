@@ -55,8 +55,8 @@ create_dataframeReform<-function(
   Mindereinnahmen_over1mio<-Einnahmen_over1mio_base-Einnahmen_over1mio_reform
 
   #Creating dataset####
-  eink_vert_gleichvert<-readRDS(paste0("dfs/",eink_file))
-  df<-eink_vert_gleichvert%>%
+
+  df<-data_vertZvE%>%
     mutate(ZvE=ZvE, #Anpassung!!!
            Steuerpflichtige_norm_smooth,
            Grenzsteuersatz_base=compute_Grenzsteuersatz(ZvE,gfb_base, pg1s_base, pg1e_base, pg2s_base, pg2e_base, pp1s_base, pp1e_base, pp2s_base),
