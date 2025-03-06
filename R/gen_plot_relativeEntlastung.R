@@ -41,7 +41,7 @@ gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000
 
   # Tatsächliche Grafik####
 
-  vis_ent_pc<-vgl_df%>%
+  vis_ent_pc<-df%>%
     ggplot(aes(x=log(ZvE)))+
 
     #farbiger Hintergrund
