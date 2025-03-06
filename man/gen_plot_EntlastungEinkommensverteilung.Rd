@@ -9,7 +9,6 @@ gen_plot_EntlastungEinkommensverteilung(
   breaks = c(10000, 30000, 1e+05, 5e+05, 1e+06),
   limit = 5e+05,
   width = 1,
-  min_val = -4,
   max_val = 4
 )
 }
@@ -22,9 +21,7 @@ gen_plot_EntlastungEinkommensverteilung(
 
 \item{width}{breite Gruppen}
 
-\item{min_val}{Obergrenze Gruppe}
-
-\item{max_val}{}
+\item{max_val}{Obergrenze Gruppe (symetrisch)}
 }
 \value{
 ggplot
