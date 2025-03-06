@@ -14,28 +14,27 @@
 #' gen_plot(relativeEntlastung(SPD2025_df))}
 #'
 
-gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000),limit=500000,limitneg_y=NULL,limitpos_y=NULL){
+gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000),limit_x=500000,limit_y=NULL){
 
-  vgl_df<-df%>%filter(ZvE<=limit)
+  df<-df%>%filter(ZvE<=limit_x)
 
   labels=formatC(breaks,big.mark = ".",decimal.mark = ",", format = "f", digits = 0)
 
   # Ober und Untergrenze Plot ermitteln (auf bzw abgerundet auf 2er Grenze)
-  if(is.null(limitneg_y)){
-    limitneg_y<--2*ceiling(min(vgl_df[vgl_df$ZvE<=limit,]$Entlastung_inklSoli_pcZvE,na.rm=T)/(-2))
+  if(is.null(limit_y)){
+    limit_y<-df%>%pull(Entlastung_inklSoli_pcZvE)%>%abs()%>%max(na.rm=TRUE)/2%>%ceiling()*2
   }
 
-  if(is.null(limitpos_y)){
-    limitpos_y<-2*ceiling(max(vgl_df[vgl_df$ZvE<=limit,]$Entlastung_inklSoli_pcZvE,na.rm=T)/2)
-  }
 
-  # farbiger Hintergrund
 
-  y_breaks<-seq(limitneg_y,limitpos_y,by=2)
+
+  # farbiger Hintergrund df
+
+  y_breaks<-seq(-limit_y,limit_y,by=2)
 
   df_bands <- data.frame(
-    y_min = c(seq(limitneg_y, 0, by = 1),seq(0, limitpos_y-1, by = 1)),
-    y_max = c(seq(limitneg_y+1, 0,  by = 1),seq(0,limitpos_y,by=1))
+    y_min = c(seq(-limit_y, 0, by = 1),seq(0, limit_y-1, by = 1)),
+    y_max = c(seq(-limit_y+1, 0,  by = 1),seq(0,limit_y,by=1))
   )
   df_bands$band_id <- seq_len(nrow(df_bands))
   my_colors<-colorRampPalette(c("#ee6174","grey95","#57C773"))(nrow(df_bands))
@@ -67,8 +66,8 @@ gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000
      geom_line(aes(y=Entlastung_inklSoli_pcZvE),color="#181c44")+
 
     #Design
-    scale_x_continuous(limits = c(log(10000),log(limit)),expand=c(0.014,0.014),breaks = log(breaks),labels = labels)+
-    scale_y_continuous(limits = c(limitneg_y,limitpos_y),breaks=y_breaks)+
+    scale_x_continuous(limits = c(log(10000),log(limit_x)),expand=c(0.014,0.014),breaks = log(breaks),labels = labels)+
+    scale_y_continuous(limits = c(-limit_y,limit_y),breaks=y_breaks)+
     labs(x="Zu versteuerndes Einkommen (ZvE)",y=NULL,title="Entlastung",subtitle = " in % des zu versteuernden Einkommens")+
     theme_dz(base_size = 10)+
     theme(panel.grid.major.y = element_blank())
