@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' gen_plot_EntlastungEinkommensverteilung(SPD2025_df)}
-gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),limit=500000,width=1,max_val=4){
+gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),max_x=500000,width=1,max_val=4){
 
   # Subfunction creating groups for coloring####
   get_entlastung_group <- function(x,max_val, width=0.5, eps = 1e-12) {
@@ -62,7 +62,7 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
   p<-vis_data%>%
     ggplot(aes(log(ZvE),Steuerpflichtige_norm_smooth))
 
-  for(i in seq(0,limit,by=5000)){
+  for(i in seq(0,max_x,by=5000)){
     p<-p+
       geom_ribbon(
         data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
