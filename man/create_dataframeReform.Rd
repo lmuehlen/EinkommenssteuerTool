@@ -5,7 +5,8 @@
 \title{Datensatz für Reformvorschlag}
 \usage{
 create_dataframeReform(
-  data_eink,
+  data_ZvE,
+  data_vertZvE,
   gfb_reform = 11604,
   pg1s_reform = 14,
   pg1e_reform = 17005,
@@ -31,8 +32,6 @@ create_dataframeReform(
 )
 }
 \arguments{
-\item{data_eink}{Tabelle 73111-02 aus Lohn- und Einkommenssteuerbericht}
-
 \item{gfb_reform}{Grundfreibetrag Reform}
 
 \item{pg1s_reform}{Startsatz erste Progressionszone}
@@ -76,6 +75,8 @@ create_dataframeReform(
 \item{solis_reform}{Solisatz}
 
 \item{solig_reform}{Gleitfaktor Soli}
+
+\item{data_eink}{Tabelle 73111-02 aus Lohn- und Einkommensteuerbericht}
 }
 \value{
 dataframe
