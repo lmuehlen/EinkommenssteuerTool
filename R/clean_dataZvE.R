@@ -59,7 +59,7 @@ clean_dataZvE<-function(data_eink,nominallohn_fkt=1){
       Steuerpflichtige_norm=Steuerpflichtige_Gesamt/(ZvE_ub-ZvE_lb),
 
     )%>%
-    dplyr::select(ZvE_lb,ZvE_ub,ZvE_Durchschnitt,ZvE_Durchschnitt_adjusted,Steuerpflichtige_norm)%>%
+    dplyr::select(ZvE_lb,ZvE_ub,ZvE_Durchschnitt,ZvE_Durchschnitt_adjusted,Steuerpflichtige_norm,Steuerpflichtige_Gesamt)%>%
     dplyr::filter(ZvE_ub>5000|ZvE_lb==1000000)
 
   return(data_eink_clean)
