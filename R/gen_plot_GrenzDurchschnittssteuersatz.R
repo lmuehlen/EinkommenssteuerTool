@@ -48,7 +48,7 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fa
       values = c("Reform" = "#EE6174", "Status quo" = "#181c44")
     )+
     guides(color=guide_legend(position="inside"))+
-    labs(x=NULL,y=NULL,title="Grenz- und Durchschnittssteuersatz",subtitle = "in Prozent")+
+    labs(x=NULL,y=NULL,color=NULL,title="Grenz- und Durchschnittssteuersatz",subtitle = "in Prozent")+
     theme_dz(base_size = 10)+
     theme(
       legend.position.inside = c(0.84, 0.19),  # Legende in die untere linke Ecke verschieben
