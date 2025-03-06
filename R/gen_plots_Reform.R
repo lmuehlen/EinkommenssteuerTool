@@ -9,6 +9,8 @@
 #' @param max_val Breite Gruppe Entlastung
 #' @param fast fast computation (select only every 200th "observation")
 #'
+#' @importFrom patchwork wrap_plots
+#'
 #' @returns ggplots
 #' @export
 #'

@@ -12,7 +12,8 @@ gen_plots_Reform(
   max_y_gstdst = 60,
   max_x_ent = 5e+05,
   max_y_ent = NULL,
-  max_val = 2,
+  width_ent = 2,
+  max_val = 8,
   fast = FALSE
 )
 }
