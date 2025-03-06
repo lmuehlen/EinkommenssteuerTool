@@ -4,8 +4,7 @@
 #' @param breaks breaks X-Achse
 #' @param limit limit X-Achse
 #' @param width breite Gruppen
-#' @param min_val Obergrenze Gruppe
-#' @param max_val
+#' @param max_val Obergrenze Gruppe (symetrisch)
 #'
 #' @returns ggplot
 #' @export
@@ -13,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' gen_plot_EntlastungEinkommensverteilung(SPD2025_df)}
-gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),limit=500000,width=1,min_val=-4,max_val=4){
+gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),limit=500000,width=1,max_val=4){
 
   # Subfunction creating groups for coloring####
   get_entlastung_group <- function(x,max_val, width=0.5, eps = 1e-12) {
