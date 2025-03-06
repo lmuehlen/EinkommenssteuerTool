@@ -22,7 +22,7 @@ gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000
 
   # Ober und Untergrenze Plot ermitteln (auf bzw abgerundet auf 2er Grenze)
   if(is.null(limit_y)){
-    limit_y<-df%>%pull(Entlastung_inklSoli_pcZvE)%>%abs()%>%max(na.rm=TRUE)/2%>%ceiling()*2
+    limit_y<-df%>%pull(Entlastung_inklSoli_pcZvE)%>%abs()%>%max(na.rm=TRUE)%>%{ceiling(./2)*2}
   }
 
 

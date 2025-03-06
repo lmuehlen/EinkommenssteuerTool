@@ -29,8 +29,7 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fa
   #Grenzen Plots
 
   if(is.null(max_y)){
-    max_y<-df%>%pull(Grenzsteuersatz_inklSoli_reform)%>%max(na.rm = T)/10%>%ceiling()*10
-    #gstdst_ub<-10*ceiling(max(df$Grenzsteuersatz_inklSoli_reform,na.rm=T)/10)
+    max_y<-df%>%pull(Grenzsteuersatz_inklSoli_reform)%>%max(na.rm = T)%>%{ceiling(./10)*10}
   }
 
   vis_gst_dst<-df%>%
