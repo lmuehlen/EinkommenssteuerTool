@@ -14,9 +14,13 @@
 #' gen_plot(relativeEntlastung(SPD2025_df))}
 #'
 
-gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000),limit_x=500000,limit_y=NULL){
+gen_plot_relativeEntlastung<-function(df=NULL,breaks=c(10000,30000,100000,500000),fast=FALSE,limit_x=500000,limit_y=NULL){
 
   df<-df%>%filter(ZvE<=limit_x)
+
+  if(fast){
+    df<-df%>%filter(ZvE%%200==0)
+  }
 
   labels=formatC(breaks,big.mark = ".",decimal.mark = ",", format = "f", digits = 0)
 
