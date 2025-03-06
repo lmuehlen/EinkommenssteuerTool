@@ -12,7 +12,7 @@
 #' @param pg2e Ende zweite Progressionszone
 #' @param pp1s Satz erste Proportionalzone, Spitzensteuersatz
 #' @param pp1e Ende erste Proportionalzone
-#' @param pp2s Seite zweite Proportionalzone, Reichensteuersatz
+#' @param pp2s Satz zweite Proportionalzone, Reichensteuersatz
 #'
 #' @returns value
 #' @export
