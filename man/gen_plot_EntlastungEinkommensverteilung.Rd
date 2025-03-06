@@ -6,10 +6,10 @@
 \usage{
 gen_plot_EntlastungEinkommensverteilung(
   df,
-  breaks = c(10000, 30000, 1e+05, 5e+05, 1e+06),
-  limit = 5e+05,
+  breaks = c(10000, 30000, 1e+05, 5e+05),
+  max_x = 5e+05,
   width = 1,
-  max_val = 4
+  max_val = 8
 )
 }
 \arguments{
@@ -17,11 +17,11 @@ gen_plot_EntlastungEinkommensverteilung(
 
 \item{breaks}{breaks X-Achse}
 
-\item{limit}{limit X-Achse}
-
 \item{width}{breite Gruppen}
 
 \item{max_val}{Obergrenze Gruppe (symetrisch)}
+
+\item{limit}{limit X-Achse}
 }
 \value{
 ggplot

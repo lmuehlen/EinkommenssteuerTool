@@ -8,8 +8,8 @@ gen_plot_relativeEntlastung(
   df = NULL,
   breaks = c(10000, 30000, 1e+05, 5e+05),
   fast = FALSE,
-  limit_x = 5e+05,
-  limit_y = NULL
+  max_x = 5e+05,
+  max_y = NULL
 )
 }
 \arguments{

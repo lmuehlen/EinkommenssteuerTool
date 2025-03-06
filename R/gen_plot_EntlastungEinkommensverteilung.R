@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' gen_plot_EntlastungEinkommensverteilung(SPD2025_df)}
-gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),max_x=500000,width=1,max_val=4){
+gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000),max_x=500000,width=1,max_val=8){
 
   # Subfunction creating groups for coloring####
   get_entlastung_group <- function(x,max_val, width=0.5, eps = 1e-12) {
