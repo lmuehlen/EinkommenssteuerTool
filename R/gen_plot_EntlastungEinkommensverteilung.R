@@ -7,10 +7,12 @@
 #' @param min_val Obergrenze Gruppe
 #' @param max_val
 #'
-#' @returns
+#' @returns ggplot
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' gen_plot_EntlastungEinkommensverteilung(SPD2025_df)}
 gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000,1000000),limit=500000,width=1,min_val=-4,max_val=4){
 
   # Subfunction creating groups for coloring####

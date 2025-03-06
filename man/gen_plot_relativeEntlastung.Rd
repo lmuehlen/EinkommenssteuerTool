@@ -7,9 +7,9 @@
 gen_plot_relativeEntlastung(
   df = NULL,
   breaks = c(10000, 30000, 1e+05, 5e+05),
-  limit = 5e+05,
-  limitneg_y = NULL,
-  limitpos_y = NULL
+  fast = FALSE,
+  limit_x = 5e+05,
+  limit_y = NULL
 )
 }
 \arguments{
