@@ -2,7 +2,7 @@
 #'
 #' @param base_size base size text
 #'
-#' @importFrom ggthemes theme_tufte
+#' @import ggthemes
 #'
 #' @returns theme
 #' @export

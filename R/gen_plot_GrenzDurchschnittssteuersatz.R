@@ -43,7 +43,7 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=NULL,
     geom_line(aes(y=Durchschnittssteuersatz_inklSoli_base,color="Status quo"),linetype="dashed")+
     geom_line(aes(y=Durchschnittssteuersatz_inklSoli_reform,color="Reform"),linetype="dashed")+
     #Design
-    scale_x_continuous(limits = c(0,max_y),expand = c(0.01,0.01),breaks=breaks,labels = labels)+
+    scale_x_continuous(limits = c(0,max_x),expand = c(0.01,0.01),breaks=breaks,labels = labels)+
     scale_y_continuous(limits = c(0,max_y))+
     scale_color_manual(
       values = c("Reform" = "#EE6174", "Status quo" = "#181c44")
