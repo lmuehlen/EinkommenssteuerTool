@@ -16,10 +16,10 @@
 #' \dontrun{
 #' get_plots_Reform(SPD2025_df)
 #' }
-get_plots_Reform<-function(df,breaks_gstdst=c(0,30000,60000,90000,120000),breaks_ent=c(10000,30000,100000,500000),max_x_gstdst=125000,max_y_gstdst=60,max_x_ent=500000,max_y_ent=NULL,max_val=2,fast=FALSE){
-  vis_gstdst<- get_plot_GrenzDurchschnittssteuersatz(df,max_x_gstdst,max_y_gstdst,fast=fast)
-  vis_entpc<-get_plot_relativeEntlastung(df,breaks=breaks,max_x=max_x_ent,max_y=max_y_ent,fast=fast)
-  vis_einkvert<-get_plot_EntlastungEinkommensverteilung(df,breaks=breaks,max_x=max_x_ent,width=width_ent,max_val=max_val)
+gen_plots_Reform<-function(df,breaks_gstdst=c(0,30000,60000,90000,120000),breaks_ent=c(10000,30000,100000,500000),max_x_gstdst=125000,max_y_gstdst=60,max_x_ent=500000,max_y_ent=NULL,max_val=2,fast=FALSE){
+  vis_gstdst<- gen_plot_GrenzDurchschnittssteuersatz(df,max_x_gstdst,max_y_gstdst,fast=fast)
+  vis_entpc<-gen_plot_relativeEntlastung(df,breaks=breaks,max_x=max_x_ent,max_y=max_y_ent,fast=fast)
+  vis_einkvert<-gen_plot_EntlastungEinkommensverteilung(df,breaks=breaks,max_x=max_x_ent,width=width_ent,max_val=max_val)
   p<-wrap_plots(vis_gstdst,vis_entpc,vis_einkvert,nrow = 1)
 
   return(p)
