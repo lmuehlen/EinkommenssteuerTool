@@ -69,9 +69,9 @@ gen_dataframe_Entlastungen <- function(data, n_groups = 10,formated=FALSE) {
     reframe(
       "Name"=group,
       "Entlastung/Kosten (Mrd)"=Entlastung_group%>%round(.,1)%>%paste0(" Mrd. €"),
-      "Entlastung (%)"=Entlastung_group_pc%>%round(.,1)%>%paste0(" %"),
+      "Entlastung (% Gesamt)"=Entlastung_group_pc%>%round(.,1)%>%paste0(" %"),
       "Entlastung Individuum"=Entlastung_ind%>%round(.,1)%>%paste0(" €"),
-      "Entlastung Individuum (%)"=Entlastung_ind_pcZvE%>%round(.,1)%>%paste0(" %")
+      "Entlastung Individuum (% ZvE)"=Entlastung_ind_pcZvE%>%round(.,1)%>%paste0(" %")
     )
 
   #list_entlastung<-list(
