@@ -4,15 +4,17 @@
 #'
 #' @param data Dataframe Reform
 #' @param n_groups Anzahl Gruppen
+#' @param formated Soll ein rein numerische Datensatz oder ein bereits formatierter exportiert werden?
 #'
-#' @returns list
+#' @returns dataframe or formated dataframe
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' get_dataframe_Entlastungen(SPD_2025,10)
 #' }
-gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
+gen_dataframe_Entlastungen <- function(data, n_groups = 10,formated=FALSE) {
+
 
 #   Entlastung insgesamt (Gesamtkosten)
   Entlastung_gesamt <- data$Mindereinnahmen_inklSoli %>%
@@ -60,12 +62,26 @@ gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
       .groups = "drop"
     )%>%
     ungroup()%>%
-    add_row(group="Insgesamt",Entlastung_group=sum(Entlastung_group),Entlastung_group_pc=sum(Entlastung_group_pc),Entlastung_ind=mean(Entlastung_ind),Entlastung_ind_pcZvE=mean(Entlastung_ind_pcZvE))
+    add_row(group="Insgesamt",Entlastung_group=sum(.$Entlastung_group),Entlastung_group_pc=sum(.$Entlastung_group_pc),Entlastung_ind=mean(.$Entlastung_ind),Entlastung_ind_pcZvE=mean(.$Entlastung_ind_pcZvE))
+
+
+  Entlastung_table<-Entlastung_dataframe%>%
+    reframe(
+      "Name"=group,
+      "Entlastung/Kosten (Mrd)"=Entlastung_group%>%round(.,1)%>%paste0(" Mrd. €"),
+      "Entlastung (%)"=Entlastung_group_pc%>%round(.,1)%>%paste0(" %"),
+      "Entlastung Individuum"=Entlastung_ind%>%round(.,1)%>%paste0(" €"),
+      "Entlastung Individuum (%)"=Entlastung_ind_pcZvE%>%round(.,1)%>%paste0(" %")
+    )
 
   #list_entlastung<-list(
   #  Entlastung_gesamt = Entlastung_gesamt,
   #  Entlastung_Übersicht = Entlastung_Uebersicht
   #)
 
+if(formated){
+  return(Entlastung_table)
+}else{
   return(Entlastung_dataframe)
+}
 }
