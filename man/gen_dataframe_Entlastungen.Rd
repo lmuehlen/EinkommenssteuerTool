@@ -4,15 +4,17 @@
 \alias{gen_dataframe_Entlastungen}
 \title{Get Entlastungen}
 \usage{
-gen_dataframe_Entlastungen(data, n_groups = 10)
+gen_dataframe_Entlastungen(data, n_groups = 10, formated = FALSE)
 }
 \arguments{
 \item{data}{Dataframe Reform}
 
 \item{n_groups}{Anzahl Gruppen}
+
+\item{formated}{Soll ein rein numerische Datensatz oder ein bereits formatierter exportiert werden?}
 }
 \value{
-list
+dataframe or formated dataframe
 }
 \description{
 Entlastungen (Kosten) insgesamt und nach n-til (im Status Quo der Steuerpflichtigen)
