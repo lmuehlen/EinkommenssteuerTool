@@ -14,9 +14,9 @@
 #' }
 gen_dataframe_Entlastungen <- function(data, n_groups = 10) {
 
-  # Entlastung insgesamt (Gesamtkosten)
-#  Entlastung_gesamt <- data$Mindereinnahmen_inklSoli %>%
- #   sum(na.rm = TRUE) / 1e9
+#   Entlastung insgesamt (Gesamtkosten)
+  Entlastung_gesamt <- data$Mindereinnahmen_inklSoli %>%
+    sum(na.rm = TRUE) / 1e9
 
   # Entlastung aufgeteilt nach n-til der im Status Quo Steuerpflichtigen
   Entlastung_dataframe <- data %>%
