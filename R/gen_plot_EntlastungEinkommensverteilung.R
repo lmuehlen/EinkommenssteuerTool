@@ -5,14 +5,17 @@
 #' @param limit limit X-Achse
 #' @param width breite Gruppen
 #' @param max_val Obergrenze Gruppe (symetrisch)
+#' @param interactive Return interactive plot?
 #'
-#' @returns ggplot
+#' @importFrom plotly ggplotly
+#'
+#' @returns ggplot or plotly
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' gen_plot_EntlastungEinkommensverteilung(SPD2025_df)}
-gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000),max_x=500000,width=1,max_val=8){
+gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000,500000),max_x=500000,width=1,max_val=8,interactive=F){
 
   # Subfunction creating groups for coloring####
   get_entlastung_group <- function(x,max_val, width=0.5, eps = 1e-12) {
@@ -72,7 +75,15 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
   }
 
   #add informative lines
-  p<-p+geom_vline(xintercept = log(12085),linetype="solid",color="#181c44")+
+  p<-p+
+    geom_line(aes(text=paste0("Anteil Steuerpflichte: ",round(100*AnteilZvE,1),"%<br>",
+                              "Zu versteuerndes Einkommen: ",round(ZvE),"€<br>",
+                              "relative Entlastung: ", round(Entlastung_inklSoli_pcZvE,1),"%<br>",
+                              "absolute Entlastung: ", round(Entlastung_inklSoli_absolut),"€")
+    ),
+    alpha=0
+    )+
+    geom_vline(xintercept = log(12085),linetype="solid",color="#181c44")+
     geom_vline(xintercept=log(vis_data[which.min(abs(vis_data$AnteilZvE-0.5)),]$ZvE),linetype="dotted",color="#181c44")+
     geom_text(x=log(vis_data[which.min(abs(vis_data$AnteilZvE-0.5)),]$ZvE)+0.3,y=0.003,label="Median",size=2.5,family="Open Sans",color="#181c44")+
     #geom_vline(xintercept=log(vis_data[which.min(abs(vis_data$AnteilZvE-0.9)),]$ZvE),linetype="dotted")+
@@ -100,6 +111,10 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
            legend.position = "none"
     )# axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1))
 
-  return(p)
-
+  if(interactive){
+    p<-ggplotly(p,tooltip="text")
+    return(p)
+  }else{
+    return(p)
+  }
 }

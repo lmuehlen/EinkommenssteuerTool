@@ -9,7 +9,8 @@ gen_plot_EntlastungEinkommensverteilung(
   breaks = c(10000, 30000, 1e+05, 5e+05),
   max_x = 5e+05,
   width = 1,
-  max_val = 8
+  max_val = 8,
+  interactive = F
 )
 }
 \arguments{
@@ -21,10 +22,12 @@ gen_plot_EntlastungEinkommensverteilung(
 
 \item{max_val}{Obergrenze Gruppe (symetrisch)}
 
+\item{interactive}{Return interactive plot?}
+
 \item{limit}{limit X-Achse}
 }
 \value{
-ggplot
+ggplot or plotly
 }
 \description{
 Plot Entlastung Einkommensverteilung
