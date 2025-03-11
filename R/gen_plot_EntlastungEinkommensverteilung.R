@@ -67,7 +67,7 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
       geom_ribbon(
         data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
         aes(x=log(ZvE),ymin=0,ymax = Steuerpflichtige_norm_smooth,fill=Entlastung_group,
-            text = paste("Zu versteuerndes Einkommen:", ZvE, "<br>Anteil", AnteilZvE)),
+            text = paste("Zu versteuerndes Einkommen:", ZvE, "Anteil", AnteilZvE)),
         position = "identity",alpha=1
       )
   }
