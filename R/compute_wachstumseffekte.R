@@ -21,7 +21,8 @@ compute_wachstumseffekte<-function(data,impulse_response=c(0.25,1.1,2.35,2.4),Ja
 
 Kosten<-compute_Gesamtkosten(data)
 
-  effektgdp<-(GDP+Kosten/GDP*impulse_response)
+# Delta GDP_t+h für Tax Change von 1% des GDP in Prozent
+  effektgdp<-impulse_response*(Kosten/GDP)
 
   steuermehreinnahmen<-effektgdp*steuerelast*steuerschätzung
 
