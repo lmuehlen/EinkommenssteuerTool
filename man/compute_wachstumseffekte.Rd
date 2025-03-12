@@ -5,7 +5,7 @@
 \title{Wachstumseffekte}
 \usage{
 compute_wachstumseffekte(
-  Kosten,
+  data,
   impulse_response = c(0.25, 1.1, 2.35, 2.4),
   Jahre = 2025:2028,
   GDP = 4406,
@@ -15,6 +15,8 @@ compute_wachstumseffekte(
 )
 }
 \arguments{
+\item{data}{Reformvorschlag}
+
 \item{GDP}{Aktuelles GDP}
 
 \item{steuerelast}{Steuerelastizität (Default 0.97 basierend auf )}
@@ -22,8 +24,6 @@ compute_wachstumseffekte(
 \item{steuerschätzung}{Steuerschätzung Default von}
 
 \item{inflationsan}{Angenommene Inflation für die nächsten Jahre (für Annahme, dass sich die Kosten entsprechend der Inflation entwickeln)}
-
-\item{data}{Reformvorschlag}
 
 \item{multiplikator}{Impulse Response für Tax Shock in Höhe 1% GDP}
 }
