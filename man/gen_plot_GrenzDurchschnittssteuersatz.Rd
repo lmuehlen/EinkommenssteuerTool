@@ -9,7 +9,8 @@ gen_plot_GrenzDurchschnittssteuersatz(
   max_x = 125000,
   max_y = 60,
   fast = FALSE,
-  breaks = c(0, 30000, 60000, 90000, 120000)
+  breaks = c(0, 30000, 60000, 90000, 120000),
+  interactive = FALSE
 )
 }
 \arguments{

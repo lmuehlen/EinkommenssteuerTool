@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' \dontrun{gen_plot_GrenzDurchschnittssteuersatz(SPD2025_df)}
-gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fast=FALSE,breaks=c(0,30000,60000,90000,120000)){
+gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fast=FALSE,breaks=c(0,30000,60000,90000,120000),interactive=FALSE){
 
   df<-df%>%filter(ZvE<=max_x)
 
@@ -32,7 +32,7 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fa
     max_y<-df%>%pull(Grenzsteuersatz_inklSoli_reform)%>%max(na.rm = T)%>%{ceiling(./10)*10}
   }
 
-  vis_gst_dst<-df%>%
+  p<-df%>%
     ggplot(aes(x=ZvE))+
     geom_hline(yintercept = 0)+
     #Grenzsteuersatz
@@ -54,5 +54,19 @@ gen_plot_GrenzDurchschnittssteuersatz<-function(df=NULL,max_x=125000,max_y=60,fa
       legend.position.inside = c(0.84, 0.19),  # Legende in die untere linke Ecke verschieben
       legend.background = element_rect(fill = "transparent",color="transparent"),  # Hintergrund halbtransparent
       legend.title = element_blank() )
-  return(vis_gst_dst)
+
+  if(interactive){
+    p<-ggplotly(p)%>%
+      layout(
+        legend = list(
+          x = 0.9,
+          y = 0.1,
+          xanchor = "right",
+          yanchor = "bottom"
+          # You can also tweak orientation or other legend properties here
+        )
+      )
+  }
+
+  return(p)
 }
