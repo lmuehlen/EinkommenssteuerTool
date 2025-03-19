@@ -5,7 +5,7 @@
 #' @param max_y Beschränkung Y-Achse (Steuersatz)
 #' @param breaks
 #'
-#' @importFrom dplyr pull
+#' @import dplyr
 #' @import ggplot2
 #'
 #'
