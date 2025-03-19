@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' \dontrun{compute_wachstumseffekte(Reform2025_df)}
-compute_Wachstumseffekte<-function(data,impulse_response=c(0.25,1.1,2.35,2.4),Jahre=2025:2028,GDP=4406,steuerelast=0.97,steuerschätzung=c(982.4,1024.9,1063.2,1133.8),inflationsan=2){
+compute_wachstumseffekte<-function(data,impulse_response=c(0.25,1.1,2.35,2.4),Jahre=2025:2028,GDP=4406,steuerelast=0.97,steuerschätzung=c(982.4,1024.9,1063.2,1133.8),inflationsan=2){
 
 
 Kosten<-compute_Gesamtkosten(data)
