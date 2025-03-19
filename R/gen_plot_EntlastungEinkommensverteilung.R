@@ -67,24 +67,16 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
   #actual plot####
   p<-vis_data%>%
     ggplot(aes(log(ZvE),Steuerpflichtige_norm_smooth))+
-    geom_ribbon(
-      aes(
-        ymin = 0, ymax = Steuerpflichtige_norm_smooth,
-        fill = Entlastung_group
-     #   group = ZvE_band
-      ),
-      alpha = 1
-    )
 
 
-  # for(i in seq(0,max_x,by=5000)){
-  #   p<-p+
-  #     geom_ribbon(
-  #       data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
-  #       aes(x=log(ZvE),ymin=0,ymax = Steuerpflichtige_norm_smooth,fill=Entlastung_group),
-  #       position = "identity",alpha=1
-  #     )
-  # }
+  for(i in seq(0,max_x,by=5000)){
+    p<-p+
+      geom_ribbon(
+        data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
+        aes(x=log(ZvE),ymin=0,ymax = Steuerpflichtige_norm_smooth,fill=Entlastung_group),
+        position = "identity",alpha=1
+      )
+  }
 
   #add informative lines
   p<-p+
