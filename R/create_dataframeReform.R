@@ -104,6 +104,11 @@ create_dataframeReform<-function(
       AnteilZvE=cumsum(Steuerpflichtige_norm_smooth)/sum(Steuerpflichtige_norm_smooth,na.rm = T)
     )%>%
     mutate(across(matches("Grenz|Durchschnitt"),~ replace(., . == 0, NA)))%>%
-    select(-c(ZvE_lb,ZvE_ub,ZvE_Durchschnitt,ZvE_Durchschnitt_adjusted,Steuerpflichtige_norm))
+    select(-c(ZvE_lb,ZvE_ub,ZvE_Durchschnitt,ZvE_Durchschnitt_adjusted,Steuerpflichtige_norm,Steuerpflichtige_Gesamt,
+              Grenzsteuersatz_base,Grenzsteuersatz_reform,Einkommensteuer_base,Einkommensteuer_reform,
+              Durchschnittssteuersatz_base,Durchschnittssteuersatz_reform,
+              Einnahmen_base,Einnahmen_reform,Entlastung_pcZvE,Entlastung_absolut,Mindereinnahmen,
+              Soli_Grenzsteuersatz_base,Soli_Grenzsteuersatz_reform,
+              Solitotal_base,Solitotal_reform))
   return(df)
 }
