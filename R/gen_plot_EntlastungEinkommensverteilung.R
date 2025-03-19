@@ -59,7 +59,11 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
   vis_data<-df%>%
     filter(ZvE>=10000)%>%
     mutate(Steuerpflichtige_norm_smooth=100*Steuerpflichtige_norm_smooth/sum(Steuerpflichtige_norm_smooth,na.rm = TRUE),
-           Entlastung_group=get_entlastung_group(Entlastung_inklSoli_pcZvE,max_val=max_val,width=width))%>%
+           Entlastung_group=get_entlastung_group(Entlastung_inklSoli_pcZvE,max_val=max_val,width=width),
+           group_break = (Entlastung_group != lag(Entlastung_group)) |
+             (ZvE - lag(ZvE, default = first(ZvE)) > 5000),
+           # Convert TRUE/FALSE to 1/0, then do a cumulative sum
+           seg_id = 1 + cumsum(ifelse(is.na(group_break), 0, group_break)))%>%
     arrange(ZvE)%>%
     filter(row_number() %% 400 == 1|lag(Entlastung_group)!=Entlastung_group|lag(Entlastung_group,200)!=Entlastung_group|lead(Entlastung_group)!=Entlastung_group|lead(Entlastung_group,200)!=Entlastung_group) #makes it faster lags necessary to avoid white lines
 
@@ -67,16 +71,25 @@ gen_plot_EntlastungEinkommensverteilung<-function(df,breaks=c(10000,30000,100000
   #actual plot####
   p<-vis_data%>%
     ggplot(aes(log(ZvE),Steuerpflichtige_norm_smooth))+
+    geom_ribbon(
+      aes(
+        ymin = 0,
+        ymax = Steuerpflichtige_norm_smooth,
+        fill = Entlastung_group,
+        group = seg_id
+      ),
+      alpha = 1
+    )
 
 
-  for(i in seq(0,max_x,by=5000)){
-    p<-p+
-      geom_ribbon(
-        data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
-        aes(x=log(ZvE),ymin=0,ymax = Steuerpflichtige_norm_smooth,fill=Entlastung_group),
-        position = "identity",alpha=1
-      )
-  }
+  # for(i in seq(0,max_x,by=5000)){
+  #   p<-p+
+  #     geom_ribbon(
+  #       data=subset(vis_data,ZvE>=i-400 &ZvE<=i+5000+400),
+  #       aes(x=log(ZvE),ymin=0,ymax = Steuerpflichtige_norm_smooth,fill=Entlastung_group),
+  #       position = "identity",alpha=1
+  #     )
+  # }
 
   #add informative lines
   p<-p+
