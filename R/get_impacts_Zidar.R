@@ -13,8 +13,10 @@
 #' \dontrun{
 #' get_impacts_Zidar(Reform2025_df)}
 get_impacts_Zidar<-function(df,GDP=4406,long=F){
-  Entlastung_TOT<-df%>%filter(group=="Insgesamt")%>%pull(Entlastung_group)%>%round(2)
-  Entlastung_T10<-df%>%filter(group=="90-100")%>%pull(Entlastung_group)%>%round(2)
+
+  df_entlastungen<-gen_dataframe_Entlastungen(df,10,formated = F)
+  Entlastung_TOT<-df_entlastungen%>%filter(group=="Insgesamt")%>%pull(Entlastung_group)%>%round(2)
+  Entlastung_T10<-df_entlastungen%>%filter(group=="90-100")%>%pull(Entlastung_group)%>%round(2)
   Entlastung_B90<-Entlastung_TOT-Entlastung_T10%>%round(2)
 
   Entlastung_T10<-100*Entlastung_T10/GDP
