@@ -22,7 +22,7 @@ gen_plot_WaterfallCost<-function(data,Jahre=c("2025","2026","2027","2028"),max_y
 
 
 
-data_Wachstumseffekte<-compute_Wachstumseffekte(data)
+data_Wachstumseffekte<-compute_wachstumseffekte(data)
 
 if(is.null(max_y)){
   max_y<-1.15*compute_Gesamtkosten(data)
