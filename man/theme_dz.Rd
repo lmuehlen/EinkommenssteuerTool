@@ -4,10 +4,12 @@
 \alias{theme_dz}
 \title{Ggplot theme Dezernat Zukunft}
 \usage{
-theme_dz(base_size = base_size)
+theme_dz(base_size = 10, base_family = "Open Sans")
 }
 \arguments{
 \item{base_size}{base size text}
+
+\item{base_family}{base font family text}
 }
 \value{
 theme
